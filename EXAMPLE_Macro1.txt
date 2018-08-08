@@ -1,44 +1,44 @@
 Sub Macro1()
 
-MsgBox "开始", vbOKOnly, "报表辅助宏"
-'Sheets("Sheet1").Range("A1") = "开始时间:" & Now
-Sheets("Sheet1").Select
-
 'A表条件
-Dim Acondtion1
-Dim Acondtion2
-Dim Acondtion3
-Dim Acondtion4
-Dim Acondtion5
+Dim Acondition1
+Dim Acondition2
+Dim Acondition3
+Dim Acondition4
+Dim Acondition5
 
 'B表条件
-Dim Bcondtion1
-Dim Bcondtion2
-Dim Bcondtion3
-Dim Bcondtion4
-Dim Bcondtion5
+Dim Bcondition1
+Dim Bcondition2
+Dim Bcondition3
+Dim Bcondition4
+Dim Bcondition5
+
+MsgBox "开始", vbOKOnly, "报表辅助宏"
+Sheets("Sheet1").Range("A1") = "开始时间:" & Now
+Sheets("Sheet1").Select
 
 For i = 1 To 2000
 
     If Sheets("A").Cells(i, 1) <> "" Then
-        Acondtion1 = Sheets("A").Cells(i, 1)
-        Acondtion2 = Sheets("A").Cells(i, 2)
-        Acondtion3 = Sheets("A").Cells(i, 3)
-        Acondtion4 = Sheets("A").Cells(i, 4)
-        Acondtion5 = Sheets("A").Cells(i, 5)
+        Acondition1 = Sheets("A").Cells(i, 1)
+        Acondition2 = Sheets("A").Cells(i, 2)
+        Acondition3 = Sheets("A").Cells(i, 3)
+        Acondition4 = Sheets("A").Cells(i, 4)
+        Acondition5 = Sheets("A").Cells(i, 5)
     Else
         Exit For
     End If
     For j = 1 To 2000
         
         If Sheets("B").Cells(j, 1) <> "" Then
-            Bcondtion1 = Sheets("B").Cells(j, 1)
-            Bcondtion2 = Sheets("B").Cells(j, 2)
-            Bcondtion3 = Sheets("B").Cells(j, 3)
-            Bcondtion4 = Sheets("B").Cells(j, 4)
-            Bcondtion5 = Sheets("B").Cells(j, 5)
+            Bcondition1 = Sheets("B").Cells(j, 1)
+            Bcondition2 = Sheets("B").Cells(j, 2)
+            Bcondition3 = Sheets("B").Cells(j, 3)
+            Bcondition4 = Sheets("B").Cells(j, 4)
+            Bcondition5 = Sheets("B").Cells(j, 5)
             
-            If Acondtion1 = Bcondtion1 And Acondtion2 = Bcondtion2 And Acondtion3 = Bcondtion3 And Acondtion4 = Bcondtion4 And Acondtion5 = Bcondtion5 Then
+            If Acondition1 = Bcondition1 And Acondition2 = Bcondition2 And Acondition3 = Bcondition3 And Acondition4 = Bcondition4 And Acondition5 = Bcondition5 Then
                 Sheets("A").Cells(i, 6) = Sheets("B").Cells(j, 6)   '如果匹配，拷贝值
             End If
         Else
@@ -46,7 +46,7 @@ For i = 1 To 2000
         End If
     Next j
 Next i
-'Sheets("Sheet1").Range("A2") = "结束时间:" & Now
+Sheets("Sheet1").Range("A2") = "结束时间:" & Now
 ActiveWorkbook.Save
 MsgBox "完成并自动保存", vbOKOnly, "报表辅助宏"
 End Sub
